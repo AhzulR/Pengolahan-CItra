@@ -21,4 +21,4 @@ for y=1:N
 end
 figure(2), imshow(uint8(Is));
 IsM = imresize(I,0.5);
-figure(2),imshow(uint8(IsM));
+figure(3),imshow(uint8(IsM));
