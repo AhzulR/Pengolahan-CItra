@@ -24,4 +24,4 @@ for y=1:N
 end
 figure(2), imshow(uint8(Ir));
 IrM = imrotate(I,-sudut,'bilinear');
-figure(2),imshow(uint8(IrM));
+figure(3),imshow(uint8(IrM));
