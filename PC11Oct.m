@@ -1,5 +1,5 @@
-clc;
-Img = imread('peppers.png');
+clear;
+Img = imread('kalkun1.jpeg');
 figure (1), imshow(Img),
 title('Tampilan Citra');
 [N,M,K] = size(Img);

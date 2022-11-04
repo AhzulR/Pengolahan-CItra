@@ -8,8 +8,14 @@ figure(2), imshow(Q,[]);
 [N, M] = size(P);
 for n = 1 : M
     for m = 1 : M
-        Citra_xor(n,m)=xor(P(n,m),Q(n,m));
-        Citra_xnor(n,m)=~(xor(P(n,m),Q(n,m)));
+        if(P(n,m) == Q(n,m))
+            Citra_xor(n,m)=0;
+        else Citra_xor(n,m)=1;
+        end
+        if(P(n,m) == Q(n,m))
+            Citra_xnor(n,m)=1;
+        else Citra_xnor(n,m)=0;
+        end
     end
 end
 figure(3), imshow(Citra_xor);

@@ -1,5 +1,5 @@
 clear;
-K = 3;
+K = 6;
 F = ones(K,K)/(K*K);
 K1 = (K+1)/2;
 I = imread('kelinci.jpeg');
