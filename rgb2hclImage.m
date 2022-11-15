@@ -15,23 +15,24 @@ for n = 1:N
         Min = min(r,min(g,b));
         if Max == 0
             Q = 1.0;
-        else Q = exp((Min*gamma)/(Max*100.0));
+        else
+            Q = exp((Min*gamma)/(Max*100.0));
         end
         rg = (r-g);
         gb = (g-b);
-        C(n,m) = (abs(b-r)+abs(rg)+abs(gb))*Q/3.0;
-        L(n,m) = (Q*Max+1(Q-1.0)*Min)/2.0;
-        H(n,m) = atan(gb/rq);
+        C(n,m) = (abs(b-r)+abs(rg)+abs(gb))*Q/(3.0);
+        L(n,m) = (Q*Max+(Q-1.0)*Min)/2.0;
+        H(n,m) = atan(gb/rg);
         if(C(n,m) == 0)
             H(n,m) = 0.0;
         elseif (rg>=0 && gb>=0)
             H(n,m) = 2*H(n,m)/3;
         elseif (rg>=0 && gb<0)
             H(n,m) = 4*H(n,m)/3;
-        elseif (rg<0 && gb>0)
+        elseif (rg<0 && gb>=0)
             H(n,m) = pi + 4*H(n,m)/3;
         elseif (rg<0 && gb<0)
-            H(n,m) = 2 * H(n,m)/3;
+            H(n,m) = 2 * H(n,m)/3 - pi;
         end
     end
 end
