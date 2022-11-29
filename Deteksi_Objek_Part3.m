@@ -1,0 +1,21 @@
+clear;
+Im = double(imread('ImageEdgeGray.png'));
+figure(1), imshow(uint8(Im));
+[N,M] = size(Im);
+
+Sx = [-1,-2,-1;0,0,0;1,2,1];
+Sy = [-1,0,1;-2,0,2;-1,0,1];
+Px = [-1,-1,-1;0,0,0;1,1,1];
+Py = [ -1,0,1; -1,0,1 ; -1,0,1];
+Gsx = conv2 (Im, Sx, 'same');
+Gsy = conv2 (Im, Sy, 'same');
+GS = abs(Gsx) + abs(Gsy);
+figure(2) , imshow (uint8 (GS) ) ;
+Gpx = conv2(Im,Px,'same');
+Gpy = conv2(Im,Py,'same');
+GP = abs(Gpx) + abs(Gpy);
+figure (3) , imshow(uint8(GP));
+GSl = imgradient(Im,'sobel' ) ;
+GPl = imgradient(Im,'prewitt');
+figure (4) , imshow (uint8 (GSl) ) ;
+figure (5) , imshow (uint8 (GPl) ) ;
